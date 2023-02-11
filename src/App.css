@@ -1,38 +1,94 @@
-.App {
+.myContainer{
+  height: 100vh;
+  width: 100vw;
+  background: url(./images/background.jpg) no-repeat center center/cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  object-fit: contain;
+  /* justify-content: space-between; */
+}
+.search{
+  position: fixed;
   text-align: center;
+  top: 30px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.searchBar{
+  padding: .7rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  outline: 0;
+  color: #f8f8f8;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.searchBar::placeholder{
+  color: #f8f8f8;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.all_info{
+  height: calc(100vh - 300px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  margin-top: 200px;
+}
+.main_info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* gap: 10px; */
+  /* margin-bottom: 450px; */
+}
+.bottom_info{
+  position: relative;
+  background-color: hsla(0,0%,100%,.2);
+  border-radius: 1rem;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+  gap: 20px;
+  padding: 10px 20px;
+}
+.wind::before{
+  content:""; 
+  /* background-color: #000000;  */
+  background-color: #707070; 
+  position: absolute; 
+  display: block;
+  bottom: 17px; 
+  right: 35%; 
+  /* right: 62.5%;  */
+  height: 30%; 
+  width: 3px;
+  transform: translateY(-50%);
+  border-radius: 5rem;
+}
+.wind::after{
+  content:""; 
+  background-color: #707070; 
+  position: absolute; 
+  /* display: block; */
+  bottom: 17px; 
+  /* right: 34%;  */
+  right: 62%; 
+  height: 30%; 
+  width: 3px;
+  transform: translateY(-50%);
+  border-radius: 5rem;
+}
+.extra_info{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
