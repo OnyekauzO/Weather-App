@@ -4,11 +4,43 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 
 function App() {
+  const [latitude, setlatitude] = useState([])
+  const [longitude, setlongitude] = useState([])
+  const [url, seturl] = useState(``)
   const [weather, setweather] = useState({});
   const [location, setlocation] = useState("");
   const API_KEY = "fb4bf41ee9a477d986dc13e46abfd3ba"
   let endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=fb4bf41ee9a477d986dc13e46abfd3ba`
-  
+  let onLoad = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
+useEffect(() => {
+  getLocation()
+  locationWeather()
+}, [])
+
+  const getLocation = () => {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position) =>{
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            setlatitude(latitude)
+            setlongitude(longitude)
+            console.log(latitude, longitude)
+            seturl(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`)
+                     
+      }) 
+    }
+  }
+
+  const locationWeather = () =>{
+    console.log('Hello');
+    axios.get(url)
+    .then((response) => {
+      console.log(response.data)
+      seturl(response.data);
+    }).catch((error) => {
+        console.log(error)
+    })
+  }
   const searchCity = (e)=>{
     if (e.key === "Enter") {
       setlocation("")
@@ -70,6 +102,22 @@ function App() {
         }
       </div>
     </div>
+    // <div className="App">
+    //   <header className="App-header">
+    //     <img src={logo} className="App-logo" alt="logo" />
+    //     <p>
+    //       Edit <code>src/App.js</code> and save to reload.
+    //     </p>
+    //     <a
+    //       className="App-link"
+    //       href="https://reactjs.org"
+    //       target="_blank"
+    //       rel="noopener noreferrer"
+    //     >
+    //       Learn React
+    //     </a>
+    //   </header>
+    // </div>
   );
 }
 
