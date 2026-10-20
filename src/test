@@ -9,8 +9,8 @@ function App() {
   const [url, seturl] = useState(``)
   const [weather, setweather] = useState({});
   const [location, setlocation] = useState("");
-  const API_KEY = "fb4bf41ee9a477d986dc13e46abfd3ba"
-  let endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=fb4bf41ee9a477d986dc13e46abfd3ba`
+  const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY
+  let endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${API_KEY}`
   let onLoad = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
 useEffect(() => {
   getLocation()

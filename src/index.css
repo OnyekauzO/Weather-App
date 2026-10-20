@@ -1,23 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+ --page-bg: #1C2128;
+ --panel-dark: #0f171d;
+ --panel-soft: rgba(255, 255, 255, 0.04);
+ --text-main: #f4f7fb;
+ --text-soft: rgba(255, 255, 255, 0.7);
+ --shadow: rgba(0, 0, 0, 0.28);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ font-family: 'Varela Round', sans-serif;
+ letter-spacing: 0.03em;
 }
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: 'Varela Round', sans-serif;
-  letter-spacing: 0.9px;
+
+html, body, #root {
+ min-height: 100%;
+ height: 100%;
+}
+
+body {
+ margin: 0;
+ min-height: 100vh;
+ background: var(--page-bg);
+ color: var(--text-main);
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+
+button, input {
+ font: inherit;
+}
+
+button {
+ cursor: pointer;
 }
