@@ -76,7 +76,7 @@ test('loads and displays live current conditions and a seven-day forecast', asyn
     `Designed by Onyeka Uzochukwu | © ${new Date().getFullYear()} All rights reserved.`
   );
   expect(footer.closest('.weather-app-shell')).toBeNull();
-  expect(screen.getByText('Designed by Onyeka Uzochukwu')).toHaveClass('footer-name');
+  expect(footer.querySelector('.footer-name')).toHaveTextContent('Onyeka Uzochukwu');
   expect(await screen.findByText('New York, New York, United States')).toBeInTheDocument();
   expect(await screen.findByText(/Approximate location from your IP/)).toBeInTheDocument();
   expect(screen.getByLabelText('Current local time')).toHaveTextContent(
